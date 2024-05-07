@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>WebSocket Test</title>
+    <script>
+      function connect() {
+        console.log("connecting");
+        const ws = new WebSocket("ws://127.0.0.1:4000/ws-test");
+
+        ws.onopen = () => {
+          console.log("connected");
+          ws.send("Hello, Server!");
+        };
+
+        ws.onmessage = (event) => {
+          console.log("message", event.data);
+        };
+
+        ws.onclose = () => {
+          console.log("Reconnecting...");
+          setTimeout(connect, 1000); // Reconnect after 1 second
+        };
+
+        ws.onerror = (error) => {
+          console.error("WebSocket error:", error);
+          ws.close();
+        };
+      }
+
+      window.onload = connect;
+    </script>
+  </head>
+  <body>
+    <h1>WebSocket Test 2</h1>
+  </body>
+</html>

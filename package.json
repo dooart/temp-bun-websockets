@@ -1,0 +1,19 @@
+{
+  "name": "bun-websockets",
+  "module": "index.ts",
+  "type": "module",
+  "devDependencies": {
+    "@types/bun": "latest",
+    "@types/uuid": "^9.0.8"
+  },
+  "peerDependencies": {
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "@hocuspocus/provider": "2.9.0",
+    "@hocuspocus/server": "2.9.0",
+    "@syncedstore/core": "^0.6.0",
+    "hono": "^4.3.2",
+    "uuid": "^9.0.1"
+  }
+}
