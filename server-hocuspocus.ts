@@ -131,15 +131,39 @@ const hono = new HonoWithSockets();
 const hocuspocusServer = HocuspocusServer.configure({
   timeout: 30_000,
   onStateless: async (payload) => {
-    console.log("Stateless request", payload);
+    console.log("Stateless request", payload.payload);
   },
-  onUpgrade: async (data) => {
-    console.log("Upgrade", data);
+  onAwarenessUpdate: async () => {
+    console.log("Awareness update");
   },
-  onDisconnect: async (data) => {
+  onChange: async () => {
+    console.log("Change");
+  },
+  onConfigure: async () => {
+    console.log("Configure");
+  },
+  onConnect: async () => {
+    console.log("Connect");
+  },
+  onListen: async () => {
+    console.log("Listen");
+  },
+  onLoadDocument: async () => {
+    console.log("Load document");
+  },
+  onRequest: async () => {
+    console.log("Request");
+  },
+  onStoreDocument: async () => {
+    console.log("Store document");
+  },
+  onUpgrade: async () => {
+    console.log("Upgrade");
+  },
+  onDisconnect: async () => {
     console.log("Disconnect");
   },
-  onDestroy: async (data) => {
+  onDestroy: async () => {
     console.log("Destroy");
   },
 });
